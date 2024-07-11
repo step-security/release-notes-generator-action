@@ -44,7 +44,7 @@ It may be a better way to communicate only once every week or once the sprint is
 
 ### Use GitHub action
 
-#### Settings for v2.0.0+ release
+#### Settings for v3.0.0+ release
 
 Create a file into your root project directory: `.github/workflows/release-notes.yml`:
 ```yaml
@@ -59,7 +59,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Create Release Notes
-      uses: docker://step-security/release-notes-generator-action:2.0.1
+      uses: step-security/release-notes-generator-action@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         OUTPUT_FOLDER: temp_release_notes
@@ -135,10 +135,10 @@ By default the release file is created into the Docker home folder. If you want 
 ### Custom output release file
 By default the output is created into *release_file.md* file. You can control the output name using environment variables in your action.
 
-#### Prefixed name using v2.0.0+
+#### Prefixed name using v3.0.0+
 ```YAML
 - name: Create Release Notes
-  uses: docker://step-security/release-notes-generator-action:2.0.1
+  uses: step-security/release-notes-generator-action@v3
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     FILENAME_PREFIX: MyMilestone
@@ -146,10 +146,10 @@ By default the output is created into *release_file.md* file. You can control th
 
 The output filename will be `MyMilestone_2` (if the milestone id is 2).
 
-#### Filename using v2.0.0+
+#### Filename using v3.0.0+
 ```YAML
 - name: Create Release Notes
-  uses: docker://step-security/release-notes-generator-action:2.0.1
+  uses: step-security/release-notes-generator-action@v3
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     FILENAME: ProvidedFilename
@@ -161,11 +161,11 @@ The output filename will be `ProvidedFilename.md`. This can be mixed up with the
 Providing the `USE_MILESTONE_TITLE` environment variable which allow you to switch the name to the Milestone title instead of providing a *static* one.
 The title will be modified replacing spaces with underscore '_' char. This will be overridden by `FILENAME`.
 
-#### Prefixed name using v2.0.0+
+#### Prefixed name using v3.0.0+
 
 ```YAML
 - name: Create Release Notes
-  uses: docker://step-security/release-notes-generator-action:2.0.1
+  uses: step-security/release-notes-generator-action@v3
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     USE_MILESTONE_TITLE: "true"
