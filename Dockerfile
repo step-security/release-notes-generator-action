@@ -1,4 +1,4 @@
-FROM openjdk:8-alpine
+FROM openjdk:8-alpine@sha256:94792824df2df33402f201713f932b58cb9de94a0cd524164a0f2283343547b3
 LABEL "maintainer"="step-security <security@stepsecurity.io>"
 LABEL "com.github.actions.name"="release-notes-generator-action"
 LABEL "com.github.actions.description"="Create a release notes of milestone"
