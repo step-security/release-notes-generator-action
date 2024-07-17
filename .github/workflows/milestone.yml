@@ -6,7 +6,12 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Harden Runner
+      uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@61b9e3751b92087fd0b06925ba6dd6314e06f089 # master
     - name: Create Release Notes
       uses: ./
       env:
@@ -14,7 +19,7 @@ jobs:
         OUTPUT_FOLDER: temp_release_notes
         USE_MILESTONE_TITLE: "true"
     - name: Upload Release Notes to Wiki
-      uses: docker://decathlon/wiki-page-creator-action:latest
+      uses: docker://decathlon/wiki-page-creator-action:latest@sha256:77ffd8d45533a3c558911d1f30eb1135a16409ba011e08d5670990304687255a
       env:
         ACTION_MAIL: bot@stepsecurity.io
         ACTION_NAME: step-security-bot
