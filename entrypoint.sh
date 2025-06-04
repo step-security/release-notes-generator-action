@@ -32,7 +32,7 @@ MILESTONE_ID_TO_USE=${MILESTONE_ID_TO_USE:-$GH_EVENT_MILESTONE_NUMBER}
 echo "Action running with milestone $MILESTONE_ID_TO_USE on event $GITHUB_EVENT_NAME and action $ACTION"
 
 #Check if Milestone exists, which means actions was raised by a milestone operation.
-if [[ -z "$MILESTONE_ID_TO_USE" ]]; then
+if [ -z "$MILESTONE_ID_TO_USE" ]; then
     echo "Milestone number is missing. Was the action raised by a milestone event?"
     exit 1
 fi
@@ -40,19 +40,19 @@ fi
 OUTPUT_FILENAME="release_file.md"
 
 #Check if we should use milestone title instead
-if [[ -z "$FILENAME" && ! -z "$USE_MILESTONE_TITLE" ]]; then
+if [ -z "$FILENAME" ] && [ -n "$USE_MILESTONE_TITLE" ]; then
     MILESTONE_TITLE=$(/JSON.sh < "${GITHUB_EVENT_PATH}" | grep '\["milestone","title"]' | cut -f2 | sed 's/\"//g' | sed 's/ /_/g')
     OUTPUT_FILENAME="$MILESTONE_TITLE.md"
 fi
 
 #Check if a filename is provided
-if [[ ! -z "$FILENAME" ]]; then
+if [ ! -z "$FILENAME" ]; then
     OUTPUT_FILENAME="$FILENAME.md"
 fi
 
 #Check if a filename prefix is provided
-if [[ ! -z "$FILENAME_PREFIX" ]]; then
-  if [[ ! -z "$FILENAME" ]]; then
+if [ ! -z "$FILENAME_PREFIX" ]; then
+  if [ ! -z "$FILENAME" ]; then
     OUTPUT_FILENAME="$FILENAME_PREFIX$FILENAME.md"
   else
     OUTPUT_FILENAME="$FILENAME_PREFIX$MILESTONE_ID_TO_USE.md"
@@ -69,14 +69,14 @@ fi
 
 echo "Checking for custom configuration..."
 CONFIG_FILE=".github/release-notes.yml"
-if [[ ! -f ${CONFIG_FILE} ]]; then
+if [ ! -f ${CONFIG_FILE} ]; then
     echo "No config file specified."
     CONFIG_FILE=""
 else
     echo "Configuring the action using $CONFIG_FILE"
 fi
 
-if [[ "workflow_dispatch" == "$GITHUB_EVENT_NAME" || "$ACTION" == "$TRIGGER_ACTION" ]]; then
+if [ "workflow_dispatch" == "$GITHUB_EVENT_NAME" || "$ACTION" == "$TRIGGER_ACTION" ]; then
     echo "Creating release notes for Milestone $MILESTONE_ID_TO_USE into the $OUTPUT_FILENAME file"
     java -jar /github-release-notes-generator.jar \
     --changelog.repository=${OWNER_ID}/${REPOSITORY_NAME} \
