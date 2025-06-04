@@ -8,7 +8,7 @@ LABEL "com.github.actions.color"="blue"
 ENV RELEASE_NOTE_GENERATOR_VERSION="v0.0.8"
 ENV RELEASE_NOTE_GENERATOR_CHECKSUM="4ac5387565b3b6d050a6ecc7bc7188e7cf62bf464596603b233ece457a66be60"
 
-RUN apk add --no-cache curl
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 COPY *.sh /
 RUN chmod +x JSON.sh && \
     wget -O github-release-notes-generator.jar https://github.com/spring-io/github-changelog-generator/releases/download/${RELEASE_NOTE_GENERATOR_VERSION}/github-changelog-generator.jar && \
