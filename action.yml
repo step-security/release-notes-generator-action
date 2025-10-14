@@ -2,7 +2,7 @@ name: Release notes generator
 description: This Github action <strong>automatically creates a release notes</strong> when a milestone is closed.
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/step-security/release-notes-generator-action:v3.1.9@sha256:60c7f63d1b19ca16681a86b9fff8a620f71639ca80e1b64cfd4585aac4546846' #v3.1.9
+  image: 'docker://ghcr.io/step-security/release-notes-generator-action:v3.2.0@sha256:2bb708d1b31dbbe974d1885f718c267b36e3d81b52ee46cb526bf41de752f396' #v3.2.0
 branding:
   icon: tag
   color: blue
