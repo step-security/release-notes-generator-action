@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jre-alpine@sha256:990397e0495ac088ab6ee3d949a2e97b715a134d8b96c561c5d130b3786a489d
+FROM eclipse-temurin:25-jre-alpine-3.23@sha256:fa349bc80dc209c9e98e61e2cc5c7d09d00d9e1abc23a5caec8a0ae78d49a4a1
 LABEL "maintainer"="step-security <security@stepsecurity.io>"
 LABEL "com.github.actions.name"="release-notes-generator-action"
 LABEL "com.github.actions.description"="Create a release notes of milestone"
