@@ -9,7 +9,7 @@ ENV RELEASE_NOTE_GENERATOR_VERSION="v0.0.12"
 ENV RELEASE_NOTE_GENERATOR_CHECKSUM="f42a5b90e3b3cc02c74d289b36af36c317c71d4be67d86f575cc3a853d9e3c7e"
 
 COPY *.sh /
-RUN apk add --no-cache curl && \
+RUN apk add --no-cache curl jq && \
     chmod +x JSON.sh && \
     wget -O github-release-notes-generator.jar https://github.com/spring-io/github-changelog-generator/releases/download/${RELEASE_NOTE_GENERATOR_VERSION}/github-changelog-generator.jar && \
     echo "$RELEASE_NOTE_GENERATOR_CHECKSUM  github-release-notes-generator.jar" | sha256sum -c -

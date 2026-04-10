@@ -186,7 +186,7 @@
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright (c) 2023 StepSecurity
+   Copyright (c) 2026 StepSecurity
    Copyright 2019 Decathlon
 
    Licensed under the Apache License, Version 2.0 (the "License");
