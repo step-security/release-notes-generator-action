@@ -5,8 +5,8 @@ LABEL "com.github.actions.description"="Create a release notes of milestone"
 LABEL "com.github.actions.icon"="pocket"
 LABEL "com.github.actions.color"="blue"
 
-ENV RELEASE_NOTE_GENERATOR_VERSION="v0.0.12"
-ENV RELEASE_NOTE_GENERATOR_CHECKSUM="f42a5b90e3b3cc02c74d289b36af36c317c71d4be67d86f575cc3a853d9e3c7e"
+ENV RELEASE_NOTE_GENERATOR_VERSION="v0.0.13"
+ENV RELEASE_NOTE_GENERATOR_CHECKSUM="afc30f5000e6bb6773f51dc8c8f7579e6e9a4edb27cd874144bc0575270783bc"
 
 COPY *.sh /
 RUN apk add --no-cache curl jq && \
